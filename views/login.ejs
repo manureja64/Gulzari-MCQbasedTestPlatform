@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Header -->
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation bar -->
+        <%- include('layouts/navbar');-%>
+            <div class="page-heading">
+                <h1>Login</h1>
+            </div>
+
+            <!-- Page Header -->
+            <header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+
+            </header>
+
+            <!-- Main Content -->
+            <main class="mb-4">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <% if(errors!=null && errors.length>0){%>
+                                <ul class="list-group"></ul>
+                                <% for(var i=0; i<errors.length; i++) { %>
+                                    <li class="list-group-item list-group-item-danger">
+                                        <%=errors[i]%>
+                                    </li>
+                                    <% } %>
+                                        </ul>
+                                        <%}%>
+
+
+                                            <form action="/users/login" method="POST">
+
+                                                <!-- <form action="/users/register" method="POST" enctype="multipart/form-data"> -->
+
+                                                <div>
+                                                    <div>
+                                                        <label>User Name</label>
+                                                        <input type="text" placeholder="username" id="username"
+                                                            name="username" value="<%= username %>">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div>
+                                                        <label>Password</label>
+                                                        <input type="password" placeholder="password" id="password"
+                                                            name="password" value="<%= password %>">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div>
+                                                    <button type="submit">Login</button>
+                                                </div>
+                                            </form>
+                                            <!-- </div>
+            </div>
+            </div>
+ -->
+
+                                            <!--                          -->
+                                            <!-- </div>
+            </main> -->
+
+
+                                            <!-- Footer -->
+                                            <%- include('layouts/footer') -%>
+                                                <!-- Script -->
+                                                <%- include('layouts/scripts'); -%>
+    </body>
+
+</html>

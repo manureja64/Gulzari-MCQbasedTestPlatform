@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+
+            <form action="" method="POST">
+                <div>
+                    <label for="direction">Direction</label>
+                    <textarea id="direction" placeholder="Direction" name="direction" required='true'
+                        value="<%= (null===direction ? '': direction.direction) %> "><%= (null===direction ? '': direction.direction) %></textarea>
+                    <script>
+                        $('#direction').summernote({
+                            placeholder: 'Direction',
+                            tabsize: 2,
+                            height: 100
+                        });
+                    </script>
+                    <label for="test">Test</label>
+                    <select name="test" id="test">
+                        <option value="<%=(null===direction ? id:direction.test._id)%>">
+                            <%=(null===direction ? id:direction.test._id)%>
+                        </option>
+                    </select>
+                    <button type="submit"> Submit</button>
+                </div>
+                <% if (errors) { %>
+                    <ul>
+                        <% for( let i=0; i < errors.length; i++ ) { %>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+                            <% } %>
+                    </ul>
+
+                    <% } %>
+            </form>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+            <ul>
+                <% for( let i=test_list.length-1; i>=0; i-- ) { %>
+
+                    <li><a href="<%=test_list[i].url%>">
+                            <%- test_list[i].title %>
+                        </a> (Number of Options: <%= test_list[i].numOfOptions %>) </li> <br>
+
+                    <% } %>
+                        <%# test.forEach(test_list=> { %>
+                            <!-- <li><a href="test.url"><%#= test.title %> </a></li> -->
+
+                            <%# }) %>
+                                <% if (test_list.length===0) { %>
+                                    <li>There are no tests</li>
+
+                                    <% } %>
+            </ul>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <span> Test Title: <u>
+                        <%- test.title %>
+                    </u> </span>
+            </h1>
+            <h3>
+                <span>No. of Options: <u>
+                        <%= test.numOfOptions %>
+                    </u></span><span>Time Duration: <u>
+                        <%= test.duration %> minutes
+                    </u></span>Test Type: <u>
+                    <% if (test.type===1) { %>
+                        Full Length Test
+                        <% } else { %>
+                            Sectional Test
+
+                            <% } %>
+                </u></span>
+            </h3>
+            <h4>Message: <p>
+                    <%- test.message %>
+                </p>
+            </h4>
+            <br>
+            <p>
+                <span><b>Result</b></span>
+            <ul>
+                <li> Number of Correct Answers: <%= correct %>
+                </li>
+
+                <li> Number of Incorrect Answers: <%= wrong %>
+                </li>
+                <li> Number of Unattempted Questions: <%= unattempted %>
+                </li>
+            </ul>
+            </p>
+            <h2>Solution</h2>
+            <%#= let ctr=0 %>
+                <ol>
+                    <%#= let ctr=0 %>
+                        <% for( let i=0,ctr=0; i < direction.length; i++ ) { %>
+
+                            <p>
+                                Direction: <%- direction[i].direction %>
+                                    <% for( let j=0; j < direction[i].question.length; j++ ) { %>
+                                        <li>
+                                            <%- direction[i].question[j].question %>
+                                                <ol type="a">
+                                                    <li>
+                                                        <%- direction[i].question[j].a %>
+                                                    </li>
+                                                    <li>
+                                                        <%- direction[i].question[j].b %>
+                                                    </li>
+                                                    <li>
+                                                        <%- direction[i].question[j].c %>
+                                                    </li>
+                                                    <li>
+                                                        <%- direction[i].question[j].d %>
+                                                    </li>
+                                                    <% if (test.numOfOptions===5) { %>
+                                                        <li>
+                                                            <%- direction[i].question[j].e %>
+                                                        </li>
+                                                        <% } %>
+                                                </ol>
+
+
+                                                <br>
+                                                <div>
+                                                    <u>Your Answer</u>: <% if (user_ans[ctr++]==='n' ) { %>
+                                                        You did NOT select any option
+                                                        <% } else { %>
+                                                            <%= user_ans[ctr-1] %>
+                                                                <% } %>
+
+                                                                    <%#= ctr+=1 %>
+
+                                                </div>
+                                                <div>
+                                                    <u>Correct Answer</u>: <%= direction[i].question[j].ans %>
+
+                                                </div>
+                                                <div>
+                                                    <u>Solution</u>: <%- direction[i].question[j].solution %>
+
+                                                </div>
+
+
+
+
+                                        </li>
+
+                                        <% } %>
+
+                            </p>
+
+                            <% } %>
+                </ol>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

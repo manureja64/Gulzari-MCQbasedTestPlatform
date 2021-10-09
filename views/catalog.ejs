@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%=title%>
+            </h1>
+
+            <% if (error) { %>
+                <p>Error getting dynamic content</p>
+
+                <% } else { %>
+                    <p> The test has the following counts:
+                    <ul>
+                        <li> <b>Tests: </b>
+                            <%= data.test_count %>
+                        </li>
+                        <li><b>Directions: </b>
+                            <%= data.direction_count %>
+                        </li>
+                        <li><b>Questions: </b>
+                            <%= data.test_count %>
+                        </li>
+                    </ul>
+                    </p>
+                    <% } %>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

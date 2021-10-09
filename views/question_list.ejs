@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+            <ul>
+                <% for( let i=0; i < question_list.length; i++ ) { %>
+                    <li><a href="<%= question_list[i].url %>">
+                            <%= question_list[i].question %>
+                        </a>
+                        <ul>
+                            <li>(Direction: <a href="<%= question_list[i].direction.url%>">
+                                    <%- question_list[i].direction.direction %>
+                                </a>)</li>
+                            <li>(Test: <a href="<%= question_list[i].test.url %> ">
+                                    <%- question_list[i].test.title %>
+                                </a>)</li><br>
+                        </ul>
+                    </li>
+                    <% } %>
+                        <% if (question_list.length===0) { %>
+                            <li>There are no Questions.</li>
+
+                            <% } %>
+            </ul>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

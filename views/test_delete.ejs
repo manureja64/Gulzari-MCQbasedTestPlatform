@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>: <%- test.title %>
+            </h1>
+            <% if (test_directions.length) { %>
+                <p><b>Delete the following Directions before attempting to delete this test </b></p>
+
+                <div style="margin-left: 20px;margin-top: 20px;">
+                    <h4>Directions</h4>
+
+                    <ul>
+                        <% for( let i=0; i < test_directions.length; i++ ) { %>
+                            <li>
+                                <a href="<%= test_directions[i].url %>">
+                                    Direction <%= i+1 %>
+                                </a>: <%- test_directions[i].direction %>
+                            </li>
+
+                            <% } %>
+                    </ul>
+                    <a href="<%= test.url %> ">Back</a>
+                </div>
+                <% } else { %>
+                    <p>Do you really want to delete this Test? </p>
+                    <form action="" method="POST">
+                        <input type="hidden" , name="testid" , required='true' , value="<%= test._id %>">
+                        <button type="submit">Delete</button>
+
+                    </form>
+                    <br>
+                    <hr><span> <a href="<%= test.url %> ">Back</a></span>
+
+
+                    <% } %>
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

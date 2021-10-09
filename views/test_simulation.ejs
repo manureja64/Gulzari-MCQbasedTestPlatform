@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%- test.title %>
+                    <%= test.numOfOptions %>
+
+            </h1>
+
+            <ol>
+                <form action="" method="POST">
+                    <% for( let i=0; i < direction.length; i++ ) { %>
+
+
+                        <p>
+
+                            Direction: <%- direction[i].direction %>
+
+
+                                <% for( let j=0; j < direction[i].question.length; j++ ) { %>
+                                    <li>
+
+                                        <label for="<%= direction[i].question[j]._id %>">
+                                            <%- direction[i].question[j].question %>
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                            id="a<%= direction[i].question[j]._id %> " value="a">
+                                        <label for="a<%= direction[i].question[j]._id %> ">
+                                            <%- direction[i].question[j].a %>
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                            id="b<%= direction[i].question[j]._id %> " value="b">
+                                        <label for="b<%= direction[i].question[j]._id %> ">
+                                            <%- direction[i].question[j].b %>
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                            id="c<%= direction[i].question[j]._id %> " value="c">
+                                        <label for="c<%= direction[i].question[j]._id %> ">
+                                            <%- direction[i].question[j].c %>
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                            id="d<%= direction[i].question[j]._id %> " value="d">
+                                        <label for="d<%= direction[i].question[j]._id %> ">
+                                            <%- direction[i].question[j].d %>
+                                        </label>
+                                        <br>
+                                        <% if (test.numOfOptions===5) { %>
+                                            <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                                id="e<%= direction[i].question[j]._id %> " value="e">
+                                            <label for="e<%= direction[i].question[j]._id %> ">
+                                                <%- direction[i].question[j].e %>
+                                            </label>
+
+                                            <% } %>
+                                                <!-- <br> Rough Print: d<%#= direction[i].question[j]._id %> -->
+                                                <br>
+                                                <input type="radio" name="<%= direction[i].question[j]._id %>"
+                                                    id="not<%= direction[i].question[j]._id %> " value="n" checked>
+                                                <label for="not<%= direction[i].question[j]._id %> ">
+                                                    No Attempt
+                                                </label>
+                                    </li>
+
+
+                                    <% } %>
+                        </p>
+
+                        <% } %>
+                            <button type="submit">Submit Test</button>
+                </form>
+
+            </ol>
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

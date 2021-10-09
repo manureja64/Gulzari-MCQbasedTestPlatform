@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+            <ul>
+                <% for( let i=0; i < direction_list.length; i++ ) { %>
+                    <li><a href="<%=direction_list[i].url%>">
+                            <%= direction_list[i].direction %>
+                        </a>
+                        <ul>
+                            <li> (Test: <a href="<%= direction_list[i].test.url %>">
+                                    <%= direction_list[i].test.title %>
+                                </a>; {number of options: <%= direction_list[i].test.numOfOptions %> })</li>
+                        </ul>
+                        <br>
+                    </li>
+
+                    <% } %>
+                        <% if (direction_list.length===0) { %>
+                            <li>There are no Directions</li>
+
+                            <% } %>
+            </ul>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

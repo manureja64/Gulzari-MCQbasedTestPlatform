@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+            <!-- <h4>Question</h4> -->
+            <!-- <br> -->
+            <dl>
+                <!-- for loop should NOT be present -->
+                <%# for( let i=0; i < question.length; i++ ) { %>
+                    <dt>
+                        <b><a href="<%= question.test.url %> ">Test:</a></b>
+                        <%- question.test.title %> <br>
+                            <b><a href="<%= question.direction.url %>"> Direction: </a></b>
+                            <%- question.direction.direction %>
+                                <br><br>
+
+                    </dt>
+                    <dt><b>Question: </b>
+                        <%- question.question %>
+                    </dt>
+                    <!-- <dt>
+                        <%# if (question.img.data) { %>
+                            <img src="data:image/<%#= question.img.contentType %>;base64,<%#= question.img.data.toString('base64') %>"
+                                alt="This is an image">
+
+                            <%# } %>
+                    </dt> -->
+                    Options:
+                    <ul>
+                        <li>
+                            <%- question.a %>
+                        </li>
+                        <li>
+                            <%- question.b %>
+                        </li>
+                        <li>
+                            <%- question.c %>
+                        </li>
+                        <li>
+                            <%- question.d %>
+                        </li>
+                        <% if (question.test.numOfOptions===5) { %>
+                            <li>
+                                <%- question.e %>
+                            </li>
+                            <% } %>
+
+                                <li>
+                                    Ans: <%- question.ans %>
+                                </li>
+                                Solution:
+                                <li>
+                                    <%- question.solution %>
+                                </li>
+                    </ul>
+                    <%# } %>
+                        <hr>
+                        <p>
+                            <a href="<%= question.url+'/update'%>"> Update Question</a>
+                        </p>
+                        <p>
+                            <a href="<%= question.url+'/delete'%>"> Delete Question</a>
+                        </p>
+            </dl>
+
+
+    </body>
+    <%#- include('layouts/scripts.js');-%>
+        <script src="js/scripts.js"></script>
+
+</html>

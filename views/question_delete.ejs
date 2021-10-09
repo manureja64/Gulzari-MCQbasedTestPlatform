@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>
+            </h1>
+            <h4>
+                <%- question.question %>
+            </h4>
+
+            <p>Do you really want to delete this question?</p>
+
+            <form action="" method="post">
+                <div>
+                    <input type="hidden" name="questionid" , required="true" , value="<%= question._id %>">
+                    <button type="submit">Delete</button>
+                </div>
+            </form>
+
+
+
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

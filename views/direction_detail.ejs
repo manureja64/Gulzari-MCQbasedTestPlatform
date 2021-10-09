@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <hr>
+            <p>
+                Test: <a href="<%= direction.test.url %>">
+                    <%- direction.test.title %>
+                </a>
+            </p>
+            <hr>
+            <h1>
+                <%= title %>
+            </h1>
+            <dl>
+                <dt><u> Number of Options</u>: <b>
+                        <%= direction.test.numOfOptions %>
+                    </b>
+                </dt> <br>
+
+                <dt>
+                    <b><u>Direction</u>:</b>
+                    <%- direction.direction %>
+                </dt>
+            </dl>
+            <div style="margin-left: 20px;margin-top: 20px;">
+                <h4>Questions</h4>
+                <ol>
+                    <% for( let i=0; i < direction_questions.length; i++ ) { %>
+                        <li>
+                            <a href="<%= direction_questions[i].url%> ">
+                                <%- direction_questions[i].question %>
+                            </a>
+                        </li>
+                        <% } %>
+                            <% if (direction_questions.length===0) { %>
+                                This direction has no questions.
+
+                                <% } %>
+                                    <dt>
+                                        <a href="/catalog/question/create/<%= direction._id %> ">Create a Question</a>
+                                    </dt>
+
+                </ol>
+                <hr>
+                <p>
+                    <a href="<%= direction.url+'/update' %>">Update Direction</a>
+                </p>
+                <p>
+                    <a href="<%= direction.url+'/delete' %>"> Delete Direction</a>
+                </p>
+            </div>
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,39 @@
+<ol>
+    <%= let ctr=0 %>
+        <% for( let i=0; i < direction.length; i++ ) { %>
+
+            <p>
+                Direction: <%- direction[i].direction %>
+                    <% for( let j=0; j < direction[i].question.length; j++ ) { %>
+                        <li>
+                            <%- direction[i].question[j].question %>
+                                <ul>
+                                    <li>Option a: <%- direction[i].question[j].a %>
+                                    </li>
+                                    <li>Option b: <%- direction[i].question[j].b %>
+                                    </li>
+                                    <li>Option c: <%- direction[i].question[j].c %>
+                                    </li>
+                                    <li>Option d: <%- direction[i].question[j].d %>
+                                    </li>
+                                    <% if (test.numOfOptions===5) { %>
+                                        <li>Option e: <%- direction[i].question[j].e %>
+                                        </li>
+                                        <% } %>
+                                            <li>Your Answer: <%= user_ans[ctr] %>
+                                                    <%= ctr+=1 %>
+                                            </li>
+                                            <li>Correct Answer: <%= direction[i].question[j].ans %>
+                                            </li>
+                                            <li>Solution: <%- direction[i].question[j].solution %>
+                                            </li>
+
+                                </ul>
+                        </li>
+
+                        <% } %>
+
+            </p>
+
+            <% } %>
+</ol>

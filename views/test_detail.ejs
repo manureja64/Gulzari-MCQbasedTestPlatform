@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1><u>Test</u>: <%- test.title %>
+            </h1>
+            <h2><u>Number of Options</u>: <%= test.numOfOptions %>
+            </h2>
+            <h3><u>Test Duration</u>: <%= test.duration %> minutes
+            </h3>
+            <h3><u>Test Type</u>: <% if (test.type===0) { %>
+                    Sectional Test
+                    <% } else { %>
+                        Full Length Test
+                        <% } %>
+            </h3>
+            <h3><u>Test Message</u>: <%- test.message %>
+            </h3>
+
+
+            <h4>Directions</h4>
+            <div style="margin-left: 20px;margin-top: 20px;">
+
+                <ol>
+                    <% for( let i=0; i < test_directions.length; i++ ) { %>
+                        <li>
+                            <a href="<%= test_directions[i].url %>">
+                                <%- test_directions[i].direction %>
+                            </a>
+                        </li>
+
+                        <% } %>
+                </ol>
+                <dl>
+                    <% if (test_directions.length===0) { %>
+                        <p>This Test has No Directions</p>
+
+                        <% } %>
+                            <hr>
+                            <dt>
+                                <h4><a href="/catalog/direction/create/<%= test._id %> ">Create a Direction</a>
+                                </h4>
+                            </dt>
+                            <hr>
+                </dl>
+            </div>
+
+            <h4>Questions</h4>
+            <div style="margin-left: 20px;margin-top: 20px;">
+
+                <ul>
+                    <% for( let i=0; i < test_questions.length; i++ ) { %>
+                        <li>
+                            <a href="<%= test_questions[i].url %>">
+                                Question <%= i+1 %>
+                            </a>: <%- test_questions[i].question %>
+                        </li>
+
+                        <% } %>
+                            <% if (test_questions.length===0) { %>
+                                <p>This Test has No Questions</p>
+
+                                <% } %>
+
+                </ul>
+            </div>
+            <hr>
+            <p>
+                <a href="<%= test.url+'/update' %>">Update Test</a>
+            </p>
+            <p>
+                <a href="<%= test.url+'/delete' %>">Delete Test</a>
+            </p>
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>

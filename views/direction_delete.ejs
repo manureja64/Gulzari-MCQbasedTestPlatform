@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+
+    <body>
+        <!-- Navigation-->
+        <%- include('layouts/navbar');-%>
+            <h1>
+                <%= title %>: <%- direction.direction %>
+            </h1>
+
+            <% if (direction_questions.length) { %>
+                <p><b>Delete the following questions before attempting to delete the direction</b></p>
+                <div style="margin-left: 20px;margin-top: 20px;">
+                    <h4>Questions</h4>
+                    <ul>
+                        <% for( let i=0; i < direction_questions.length; i++ ) { %>
+                            <li><a href="<%= direction_questions[i].url %>">
+                                    <%= direction_questions[i].question %>
+                                </a></li>
+
+
+                            <% } %>
+                    </ul>
+                </div>
+                <% } else { %>
+                    <p>Do you really want to delete this Direction? </p>
+                    <form action="" method="POST">
+                        <div>
+                            <input type="hidden" , name='directionid' , required='true' , value="<%= direction._id %>">
+                            <button type="submit">Delete</button>
+                        </div>
+                    </form>
+
+
+
+                    <% } %>
+
+    </body>
+
+    <script src="js/index.js"></script>
+
+</html>
