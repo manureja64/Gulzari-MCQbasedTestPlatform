@@ -7,7 +7,7 @@ const ejs = require('ejs')
 app.set('view engine', 'ejs')
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/my_testplatform', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://Himanshu:manu2209@cluster0.sdsek.mongodb.net/my_testplatform', { useNewUrlParser: true })
 
 // var multer = require('multer');
 // var storage = multer.diskStorage({
@@ -97,6 +97,13 @@ app.get('/auth/logout', logoutController)
 
 app.use((req, res) => res.render('notfound'));
 
-app.listen(4000, () => {
-    console.log("App listening on port 4000")
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 4000;
+}
+app.listen(port, () => {
+    console.log('App listening...')
 })
+// app.listen(4000, () => {
+//     console.log("App listening on port 4000")
+// })
