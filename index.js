@@ -26,7 +26,9 @@ var helmet = require('helmet');
 
 
 app.use(compression()); //Compress all routes
-app.use(helmet()); //Protect against well-known vulnerabilities
+
+// app.use(helmet()); //Protect against well-known vulnerabilities
+// But this disable WYSIWYG editor
 
 // var bodyParser = require('body-parser')
 // app.use(bodyParser.json());
